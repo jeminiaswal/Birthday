@@ -316,7 +316,7 @@ body {
 
 .gift-image-placeholder span {
     display: block;
-    font-size: 20px;
+    font-size: 60px;
 }
 
 .gift-image-placeholder.bouquet-placeholder {
@@ -356,6 +356,25 @@ body {
     width: auto;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ----- VIDEO CONTAINER STYLES ----- */
+.video-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-video {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #000;
 }
 
 /* ----- BOUQUET STYLES ----- */
@@ -464,5 +483,9 @@ body {
     .gift-image {
         max-width: 100%;
         max-height: 500px;
+    }
+
+    .gift-video {
+        max-width: 100%;
     }
 }
