@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Floating Hearts Animation -->
+    <div class="hearts-container">
+        <div class="heart">❤️</div>
+        <div class="heart">💕</div>
+        <div class="heart">💖</div>
+        <div class="heart">💗</div>
+        <div class="heart">💝</div>
+    </div>
+
     <!-- Pin Screen -->
     <div class="pin-screen" id="pinScreen">
         <div class="pin-container">
@@ -62,7 +71,7 @@
                     <!-- Gift 1 -->
                     <div class="gift-card" id="gift1" onclick="selectGift(1)">
                         <div class="gift-image-placeholder">
-                            <span>?</span>
+                            <span>🎁</span>
                             <p>Click to reveal</p>
                         </div>
                         <h3>Gift 1</h3>
@@ -71,7 +80,7 @@
                     <!-- Gift 2 -->
                     <div class="gift-card" id="gift2" onclick="selectGift(2)">
                         <div class="gift-image-placeholder">
-                            <span>?</span>
+                            <span>🎁</span>
                             <p>Click to reveal</p>
                         </div>
                         <h3>Gift 2</h3>
@@ -80,7 +89,7 @@
                     <!-- Gift 3 -->
                     <div class="gift-card" id="gift3" onclick="selectGift(3)">
                         <div class="gift-image-placeholder">
-                            <span>?</span>
+                            <span>🎁</span>
                             <p>Click to reveal</p>
                         </div>
                         <h3>Gift 3</h3>
@@ -117,20 +126,17 @@
         </div>
     </div>
 
-    <!-- Page 6: Gift 3 - Surprise -->
+    <!-- Page 6: Gift 3 - Video -->
     <div class="page" id="page6" style="display: none;">
         <div class="page-container">
             <div class="page-content gift-view">
                 <h1 class="page-title">Gift 3</h1>
-                <div class="bouquet-container">
-                    <div class="flower" id="flower1">🌹</div>
-                    <div class="flower" id="flower2">🌷</div>
-                    <div class="flower" id="flower3">🌺</div>
-                    <div class="flower" id="flower4">🌸</div>
-                    <div class="flower" id="flower5">💐</div>
-                    <div class="stem"></div>
+                <div class="gift-display">
+                    <video controls class="gift-video">
+                        <source src="IMG_0048.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-                <p class="bouquet-message">A special surprise for you! 💕</p>
                 <button class="btn btn-back" id="btnBackGift3">← Choose Another Gift</button>
             </div>
         </div>
