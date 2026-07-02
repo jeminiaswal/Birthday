@@ -3,19 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Love Letter</title>
+    <title>Special Gift</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="background-hearts">
-        <div class="envelope-wrapper">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="front"></div>
-                <div class="card">
-                    <p class="text">You are one in a million feeling, I love you! ❤️</p>
-                    <img class="gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW9pM3R5NXhubW9wZnd4ZzJ6bWZicXFpazN0Ymd4cnI0ZHl3amI0ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbhxtvUhG/giphy.gif" alt="Cute Cat GIF">
+    <!-- Pin Screen -->
+    <div class="pin-screen" id="pinScreen">
+        <div class="pin-container">
+            <h1 class="pin-title">💝 Special Message For You</h1>
+            <p class="pin-subtitle">Enter the PIN to continue</p>
+            <div class="pin-input-wrapper">
+                <input type="password" id="pinInput" class="pin-input" placeholder="••••" maxlength="4" inputmode="numeric">
+            </div>
+            <button class="pin-button" id="pinButton">
+                <span class="pin-icon">🔓</span>
+                <span class="pin-text">Unlock</span>
+            </button>
+            <p class="pin-hint" id="pinHint">Enter 4-digit PIN</p>
+            <p class="pin-error" id="pinError"></p>
+        </div>
+    </div>
+
+    <!-- Page 1: Accept Gift Question -->
+    <div class="page" id="page1" style="display: none;">
+        <div class="page-container">
+            <div class="page-content">
+                <h1 class="page-title">💝 Will You Accept My Gift?</h1>
+                <p class="page-subtitle">This is something special just for you...</p>
+                <div class="button-group">
+                    <button class="btn btn-yes" id="btnYes">Yes</button>
+                    <button class="btn btn-no" id="btnNo">No</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: No Response (Try Again) -->
+    <div class="page" id="page2" style="display: none;">
+        <div class="page-container">
+            <div class="page-content">
+                <h1 class="page-title">😊 Why Did You Click No?</h1>
+                <p class="page-subtitle">Come on, try again! (We know no means yes 😉)</p>
+                <div class="button-group">
+                    <button class="btn btn-primary" id="btnTryAgain">Try Again</button>
+                    <button class="btn btn-back" id="btnBackPage1">← Go Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: Gift Options -->
+    <div class="page" id="page3" style="display: none;">
+        <div class="page-container">
+            <div class="page-content">
+                <h1 class="page-title">🎁 Choose Your Gift!</h1>
+                <p class="page-subtitle">Pick one of these beautiful gifts...</p>
+                <div class="gifts-grid">
+                    <!-- Gift 1 -->
+                    <div class="gift-card" id="gift1" onclick="selectGift(1)">
+                        <div class="gift-image-placeholder">
+                            <span>Gift 1</span>
+                            <p>Click to view</p>
+                        </div>
+                        <h3>Gift 1</h3>
+                    </div>
+
+                    <!-- Gift 2 -->
+                    <div class="gift-card" id="gift2" onclick="selectGift(2)">
+                        <div class="gift-image-placeholder">
+                            <span>Gift 2</span>
+                            <p>Click to view</p>
+                        </div>
+                        <h3>Gift 2</h3>
+                    </div>
+
+                    <!-- Gift 3 -->
+                    <div class="gift-card" id="gift3" onclick="selectGift(3)">
+                        <div class="gift-image-placeholder bouquet-placeholder">
+                            <span>🌹 Animated Bouquet</span>
+                            <p>Click to view</p>
+                        </div>
+                        <h3>Animated Bouquet</h3>
+                    </div>
+                </div>
+                <button class="btn btn-back" id="btnBackPage2">← Go Back</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Gift 1 View -->
+    <div class="page" id="page4" style="display: none;">
+        <div class="page-container">
+            <div class="page-content gift-view">
+                <h1 class="page-title">🎁 Gift 1</h1>
+                <div class="gift-display">
+                    <div class="gift-image-placeholder large">
+                        <span>Gift 1 Image</span>
+                        <p>(Upload your image here)</p>
+                    </div>
+                </div>
+                <button class="btn btn-back" id="btnBackGift1">← Choose Another Gift</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 5: Gift 2 View -->
+    <div class="page" id="page5" style="display: none;">
+        <div class="page-container">
+            <div class="page-content gift-view">
+                <h1 class="page-title">🎁 Gift 2</h1>
+                <div class="gift-display">
+                    <div class="gift-image-placeholder large">
+                        <span>Gift 2 Image</span>
+                        <p>(Upload your image here)</p>
+                    </div>
+                </div>
+                <button class="btn btn-back" id="btnBackGift2">← Choose Another Gift</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 6: Gift 3 - Animated Bouquet -->
+    <div class="page" id="page6" style="display: none;">
+        <div class="page-container">
+            <div class="page-content gift-view">
+                <h1 class="page-title">🌹 Animated Bouquet</h1>
+                <div class="bouquet-container">
+                    <div class="flower" id="flower1">🌹</div>
+                    <div class="flower" id="flower2">🌷</div>
+                    <div class="flower" id="flower3">🌺</div>
+                    <div class="flower" id="flower4">🌸</div>
+                    <div class="flower" id="flower5">💐</div>
+                    <div class="stem"></div>
+                </div>
+                <p class="bouquet-message">A bouquet of love for you! 💕</p>
+                <button class="btn btn-back" id="btnBackGift3">← Choose Another Gift</button>
             </div>
         </div>
     </div>
